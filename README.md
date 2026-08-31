@@ -24,16 +24,20 @@ Google Sheets acts as the control panel for the automation. A new topic added to
 
 ## Architecture
 
-Google Sheets  
-→ Perplexity AI  
-→ OpenAI Facebook Generator  
-→ OpenAI LinkedIn Generator  
-→ OpenAI Image Prompt Generator  
-→ Leonardo AI  
-→ Google Sheets Update  
-→ Router  
-→ Facebook Pages  
-→ HTTP Download → LinkedIn  
+```mermaid
+flowchart TD
+    A[Google Sheets<br/>Watch New Rows] --> B[Perplexity AI<br/>Research & Summarize]
+    B --> C[OpenAI<br/>Generate Facebook Post]
+    C --> D[OpenAI<br/>Generate LinkedIn Post]
+    D --> E[OpenAI<br/>Generate Image Prompt]
+    E --> F[Leonardo AI<br/>Generate Image]
+    F --> G[Google Sheets<br/>Update Row]
+    G --> H{Router}
+
+    H --> I[Facebook Pages<br/>Publish Post + Image]
+    H --> J[HTTP<br/>Download Image]
+    J --> K[LinkedIn<br/>Publish Post + Image]
+```
 
 ## Technologies Used
 
